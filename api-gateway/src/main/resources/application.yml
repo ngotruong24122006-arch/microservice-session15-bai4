@@ -1,0 +1,15 @@
+server:
+    port: 8888
+
+spring:
+    application:
+        name: api-gateway
+
+    cloud:
+        gateway:
+            routes:
+                - id: course-service
+                  uri: http://localhost:8082
+                  predicates:
+                      - Path=/api/courses/**
+
